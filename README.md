@@ -68,35 +68,21 @@ Endpoints used:
 ## 🚀 Getting Started
 
 1. Clone the repo:
-
-```bash
 git clone https://github.com/YOUR_USERNAME/movie-matchmaker.git
 
-Install dependencies:
+2. Install dependencies:
 
 npm install
 
-Run the project:
+3. Run the project:
 
 npm run dev
-🔐 API Key
+
+4. 🔐 API Key
 
 You need a TMDB API key.
 
-Replace in code:
+5. Replace in code:
 
 const API_KEY = "your_api_key_here";
 
----
-
-💡 Future Improvements
-
-🎯 Better recommendation algorithm
-
-🎬 Watchlist / favorites
-
-🔍 Search by actor / director
-
-🌙 Dark/light theme toggle
-
-📊 Match percentage visualization

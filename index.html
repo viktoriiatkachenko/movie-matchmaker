@@ -4,84 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Movie Matchmaker</title>
-
   <script type="module" crossorigin src="/movie-matchmaker/index.js"></script>
-  <link rel="stylesheet" crossorigin href="/movie-matchmaker/assets/index-DO_pfbna.css">
+  <link rel="modulepreload" crossorigin href="/movie-matchmaker/assets/styles-B2NxqJIg.js">
+  <link rel="stylesheet" crossorigin href="/movie-matchmaker/assets/styles-DTo7E10c.css">
 </head>
-
 <body>
   <div id="app">
+    <main class="landing-page">
+      <section class="hero">
+        <p class="hero-badge">Find a movie for two</p>
 
-    <!-- 🏠 Home Screen -->
-    <section id="home-screen">
-      <h1>Movie Matchmaker</h1>
-      <p>Find the perfect movie for both of you</p>
+        <h1 class="hero-title">Movie Matchmaker</h1>
 
-      <button id="start-btn">Start matching</button>
-    </section>
+        <p class="hero-text">
+          A stylish movie finder that helps two people discover a film they’ll both enjoy.
+        </p>
 
-    <!-- 🎯 Preferences Screen -->
-    <section id="preferences-screen" style="display: none;">
-
-      <h2>Tell us about your tastes</h2>
-
-      <div class="users-container">
-
-        <!-- Person A -->
-        <div class="user-card">
-          <h3>Person 1</h3>
-
-          <input type="text" placeholder="Your name" />
-
-          <p>Favorite genres</p>
-          <div class="genres" data-type="favorite"></div>
-
-          <p>Avoid genres</p>
-          <div class="genres" data-type="avoid"></div>
-
-          <p>Mood</p>
-          <div class="moods"></div>
-        </div>
-
-        <!-- Person B -->
-        <div class="user-card">
-          <h3>Person 2</h3>
-
-          <input type="text" placeholder="Your name" />
-
-          <p>Favorite genres</p>
-          <div class="genres" data-type="favorite"></div>
-
-          <p>Avoid genres</p>
-          <div class="genres" data-type="avoid"></div>
-
-          <p>Mood</p>
-          <div class="moods"></div>
-        </div>
-
-      </div>
-
-      <button id="match-btn">Find our movie</button>
-    </section>
-
-    <!-- 🎬 Results Screen -->
-    <section id="results-screen" style="display: none;">
-      <h2>Your perfect match</h2>
-
-      <div id="results"></div>
-
-      <button id="restart-btn">Try again</button>
-    </section>
-
+        <button id="start-btn" class="primary-btn" type="button">
+          Start matching
+        </button>
+      </section>
+    </main>
   </div>
 
 </body>
-<div id="movie-modal" class="movie-modal hidden">
-  <div class="movie-modal__overlay"></div>
-
-  <div class="movie-modal__content">
-    <button id="modal-close-btn" class="modal-close-btn" type="button">✕</button>
-    <div id="modal-body"></div>
-  </div>
-</div>
 </html>

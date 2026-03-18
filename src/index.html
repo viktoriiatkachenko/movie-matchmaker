@@ -1,23 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Matchmaker</title>
 
-    <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
-    </main>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
 
-    <load src="./partials/footer.html" />
+<body>
+  <div id="app">
 
-    <script type="module" src="./main.js"></script>
-  </body>
+    <!-- 🏠 Home Screen -->
+    <section id="home-screen">
+      <h1>Movie Matchmaker</h1>
+      <p>Find the perfect movie for both of you</p>
+
+      <button id="start-btn">Start matching</button>
+    </section>
+
+    <!-- 🎯 Preferences Screen -->
+    <section id="preferences-screen" style="display: none;">
+
+      <h2>Tell us about your tastes</h2>
+
+      <div class="users-container">
+
+        <!-- Person A -->
+        <div class="user-card">
+          <h3>Person 1</h3>
+
+          <input type="text" placeholder="Your name" />
+
+          <p>Favorite genres</p>
+          <div class="genres" data-type="favorite"></div>
+
+          <p>Avoid genres</p>
+          <div class="genres" data-type="avoid"></div>
+
+          <p>Mood</p>
+          <div class="moods"></div>
+        </div>
+
+        <!-- Person B -->
+        <div class="user-card">
+          <h3>Person 2</h3>
+
+          <input type="text" placeholder="Your name" />
+
+          <p>Favorite genres</p>
+          <div class="genres" data-type="favorite"></div>
+
+          <p>Avoid genres</p>
+          <div class="genres" data-type="avoid"></div>
+
+          <p>Mood</p>
+          <div class="moods"></div>
+        </div>
+
+      </div>
+
+      <button id="match-btn">Find our movie</button>
+    </section>
+
+    <!-- 🎬 Results Screen -->
+    <section id="results-screen" style="display: none;">
+      <h2>Your perfect match</h2>
+
+      <div id="results"></div>
+
+      <button id="restart-btn">Try again</button>
+    </section>
+
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
 </html>

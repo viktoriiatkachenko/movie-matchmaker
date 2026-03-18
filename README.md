@@ -53,32 +53,6 @@ the app then suggests the best matching movies using real API data.
 
 ---
 
-## 📂 Project Structure
-
-
-src/
-│
-├── index.html # Landing page
-├── match.html # Preferences page
-├── results.html # Results page
-│
-├── landing.js # Landing logic
-├── match.js # Form logic
-├── results.js # Results logic
-│
-├── js/
-│ ├── api.js # API requests
-│ ├── render.js # Rendering movies
-│ ├── modal.js # Movie modal
-│ ├── mood.js # Mood + scoring logic
-│ ├── storage.js # LocalStorage
-│ ├── form.js # Form helpers
-│ └── data.js # Static data (genres, moods)
-│
-└── styles.css
-
----
-
 ## 🔌 API
 
 This project uses:
@@ -112,6 +86,9 @@ You need a TMDB API key.
 Replace in code:
 
 const API_KEY = "your_api_key_here";
+
+---
+
 💡 Future Improvements
 
 🎯 Better recommendation algorithm

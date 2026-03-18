@@ -1,7 +1,8 @@
 import { fetchMatchedMovies } from "./js/api.js";
-import { renderMovies } from "./js/render.js";
 import { setupModal } from "./js/modal.js";
 import { getMatchData, clearMatchData } from "./js/storage.js";
+import { renderMovies, renderBestMatch } from "./js/render.js";
+import { getMovieScore } from "./js/mood.js";
 
 const API_KEY = "4b1ef9933dbb53ae038172050f28ee9b";
 
@@ -26,15 +27,31 @@ restartBtn.addEventListener("click", function () {
 async function loadMovies() {
   const { user1, user2 } = matchData;
 
-  console.log("matchData:", matchData);
-
   const { movies, genreList } = await fetchMatchedMovies(API_KEY, user1, user2);
 
-  console.log("movies:", movies);
-  console.log("genreList:", genreList);
+  if (!movies || movies.length === 0) {
+    resultsContainer.innerHTML = "<p>No movies found. Try different preferences.</p>";
+    return;
+  }
 
-  renderMovies(resultsContainer, movies, genreList, {
+  const bestMatchContainer = document.getElementById("best-match");
+
+  const movieMoods = {
     user1: user1.mood,
     user2: user2.mood
+  };
+
+  const sortedMovies = [...movies].sort((a, b) => {
+    return getMovieScore(b, genreList, movieMoods) - getMovieScore(a, genreList, movieMoods);
   });
+
+  const bestMovie = sortedMovies[0];
+  const otherMovies = sortedMovies.slice(1);
+
+  renderBestMatch(bestMatchContainer, bestMovie, genreList, movieMoods);
+  renderMovies(resultsContainer, otherMovies, genreList, movieMoods);
 }
+
+const sortedMovies = [...movies].sort((a, b) => {
+  return getMovieScore(b, genreList, movieMoods) - getMovieScore(a, genreList, movieMoods);
+});

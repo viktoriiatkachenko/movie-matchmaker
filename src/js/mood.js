@@ -53,3 +53,28 @@ export function getCombinedMoodFit(moods, movieGenres) {
 
   return [user1Text, user2Text].filter(Boolean);
 }
+
+export function getMovieScore(movie, genreList, moods) {
+  const movieGenres = getGenreNamesFromIds(movie.genre_ids, genreList);
+
+  let score = 0;
+
+  const user1Correlation = getMoodCorrelation(moods.user1, movieGenres);
+  const user2Correlation = getMoodCorrelation(moods.user2, movieGenres);
+
+  if (user1Correlation) {
+    if (user1Correlation.label === "High") score += 3;
+    else if (user1Correlation.label === "Medium") score += 2;
+    else score += 1;
+  }
+
+  if (user2Correlation) {
+    if (user2Correlation.label === "High") score += 3;
+    else if (user2Correlation.label === "Medium") score += 2;
+    else score += 1;
+  }
+
+  score += movie.vote_average / 2;
+
+  return score;
+}

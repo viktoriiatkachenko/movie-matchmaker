@@ -1,4 +1,4 @@
-import { getGenreNamesFromIds, getCombinedMoodFit } from "./mood.js";
+import { getGenreNamesFromIds } from "./mood.js";
 import { openMovieModal } from "./modal.js";
 
 export function renderMovies(resultsContainer, movies, genreList, moods) {

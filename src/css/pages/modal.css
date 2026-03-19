@@ -70,9 +70,8 @@
 
 .modal-poster img {
   width: 100%;
-  border-radius: 14px;
   display: block;
-  background: #0b0b10;
+  border-radius: 5px;
 }
 
 .modal-meta h2 {
@@ -129,8 +128,8 @@
   }
 
   .modal-poster img {
-    max-height: 420px;
     object-fit: contain;
+    border-radius: 5px;
   }
 
   .modal-meta h2 {

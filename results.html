@@ -5,24 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Matches</title>
   <script type="module" crossorigin src="/movie-matchmaker/results.js"></script>
-  <link rel="modulepreload" crossorigin href="/movie-matchmaker/assets/styles-CCtAtZr1.js">
+  <link rel="modulepreload" crossorigin href="/movie-matchmaker/assets/vendor-CO_RJdZs.js">
+  <link rel="modulepreload" crossorigin href="/movie-matchmaker/assets/lenis-Vg-C-t4S.js">
   <link rel="modulepreload" crossorigin href="/movie-matchmaker/assets/storage-D_nSxz11.js">
-  <link rel="stylesheet" crossorigin href="/movie-matchmaker/assets/styles-Da2IHJrv.css">
+  <link rel="stylesheet" crossorigin href="/movie-matchmaker/assets/vendor-BR-JQ1hv.css">
+  <link rel="stylesheet" crossorigin href="/movie-matchmaker/assets/lenis-B2hFtGNb.css">
 </head>
 <body>
   <div id="app">
     <main class="results-page">
+      
       <section class="results-header">
-        <div class="results-header__text">
-          <p class="hero-badge">Your movie picks</p>
-          <h1>Your matches</h1>
-          <p>Here are the best movies for both of you.</p>
-        </div>
+  <div class="results-header__top">
+    <div class="results-header__text">
+      <p class="hero-badge">Your movie picks</p>
+      <h1>Your matches</h1>
+      <p class="results-subtitle">
+        Here are the best movies for both of you.
+      </p>
+    </div>
 
-        <button id="restart-btn" class="primary-btn" type="button">
-          Try again
-        </button>
-      </section>
+    <div class="results-header__actions">
+      <button id="home-btn" class="secondary-btn" type="button">
+        ← Home
+      </button>
+
+      <button id="restart-btn" class="primary-btn" type="button">
+        Try again
+      </button>
+    </div>
+  </div>
+</section>
+
+<p id="fallback-message" class="fallback-message hidden">
+  We couldn't find perfect matches — here are popular picks 🎬
+</p>
 
      <section class="best-match-section">
   <h2>Best Match</h2>
@@ -32,6 +49,12 @@
 <section class="results-content">
   <h2>More Matches</h2>
   <div id="results"></div>
+
+  <div class="load-more-wrap">
+    <button id="load-more-btn" class="secondary-btn" type="button">
+      Load more
+    </button>
+  </div>
 </section>
 
     </main>

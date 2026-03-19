@@ -1,0 +1,129 @@
+.movie-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.movie-modal.hidden {
+  display: none;
+}
+
+.movie-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(229, 9, 20, 0.12), transparent 30%),
+    rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.movie-modal__content {
+  position: relative;
+  z-index: 2;
+  width: min(920px, calc(100% - 32px));
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: 40px auto;
+  background:
+    linear-gradient(135deg, rgba(229, 9, 20, 0.06), transparent 28%),
+    linear-gradient(180deg, #17171f 0%, #111118 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 24px;
+  color: white;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(229, 9, 20, 0.16);
+  border-color: rgba(229, 9, 20, 0.3);
+  transform: rotate(90deg);
+}
+
+.modal-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+}
+
+.modal-poster img {
+  width: 100%;
+  border-radius: 14px;
+  display: block;
+  background: #0b0b10;
+}
+
+.modal-meta h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.modal-genres {
+  color: #b8b8c7;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.movie-overview {
+  line-height: 1.7;
+  color: #e4e4ef;
+}
+
+@keyframes modalOverlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 700px) {
+  .movie-modal__content {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .modal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-meta h2 {
+    font-size: 28px;
+  }
+}

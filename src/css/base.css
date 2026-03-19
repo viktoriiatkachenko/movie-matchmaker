@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(229, 9, 20, 0.18), transparent 30%),
+    radial-gradient(circle at 85% 10%, rgba(229, 9, 20, 0.1), transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.04), transparent 30%),
+    linear-gradient(180deg, #0f0f14 0%, #0a0a0f 100%);
+}
+
+.body::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(229, 9, 20, 0.25), transparent 60%);
+  top: -200px;
+  right: -150px;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.body::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(229, 9, 20, 0.18), transparent 60%);
+  bottom: -150px;
+  left: -120px;
+  filter: blur(100px);
+  z-index: 0;
+}
+
+.body::before,
+.body::after {
+  animation: floatGlow 10s ease-in-out infinite;
+}
+
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, -20px);
+  }
+}
+
+::selection {
+  background: rgba(229, 9, 20, 0.35);
+  color: white;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+.hidden {
+  display: none;
+}

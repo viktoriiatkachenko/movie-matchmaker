@@ -1,4 +1,5 @@
 import { getGenreNamesFromIds, getCombinedMoodFit } from "./mood.js";
+import { gsap } from "gsap";
 
 let movieModal;
 let modalBody;
@@ -27,8 +28,9 @@ export function openMovieModal(movie, genreList, moods) {
 
       <div class="modal-meta">
         <h2>${movie.title}</h2>
-        <p>⭐ ${movie.vote_average}</p>
+        <p>⭐ ${Math.round(movie.vote_average * 10) / 10}</p>
         <p class="modal-genres"><strong>Genres:</strong> ${movieGenres.join(", ") || "Unknown"}</p>
+
         <h3>About this movie</h3>
         <p class="movie-overview">${movie.overview || "No description available."}</p>
       </div>
@@ -36,9 +38,37 @@ export function openMovieModal(movie, genreList, moods) {
   `;
 
   movieModal.classList.remove("hidden");
+
+  gsap.set(".movie-modal__overlay", { opacity: 0 });
+  gsap.set(".movie-modal__content", { opacity: 0, y: 18, scale: 0.98 });
+
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  tl.to(".movie-modal__overlay", { opacity: 1, duration: 0.22 })
+    .to(".movie-modal__content", {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.32
+    }, "-=0.1");
 }
 
 export function closeMovieModal() {
-  movieModal.classList.add("hidden");
-  modalBody.innerHTML = "";
+  const tl = gsap.timeline({
+    defaults: { ease: "power2.inOut" },
+    onComplete: () => {
+      movieModal.classList.add("hidden");
+      modalBody.innerHTML = "";
+    }
+  });
+
+  tl.to(".movie-modal__content", {
+    opacity: 0,
+    y: 14,
+    scale: 0.98,
+    duration: 0.22
+  })
+    .to(".movie-modal__overlay", {
+      opacity: 0,
+      duration: 0.18
+    }, "-=0.12");
 }

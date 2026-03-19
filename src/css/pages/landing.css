@@ -1,0 +1,30 @@
+
+.landing-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+
+.hero {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  color: #b8b8c7;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: 56px;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+.hero-text {
+  max-width: 560px;
+  font-size: 18px;
+  color: #d0d0dc;
+  margin-bottom: 28px;
+}

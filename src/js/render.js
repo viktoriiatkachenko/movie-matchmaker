@@ -1,10 +1,14 @@
 import { getGenreNamesFromIds } from "./mood.js";
 import { openMovieModal } from "./modal.js";
 
-export function renderMovies(resultsContainer, movies, genreList, moods) {
-  resultsContainer.innerHTML = "";
+export function renderMovies(resultsContainer, movies, genreList, moods, append = false) {
+  if (!append) {
+    resultsContainer.innerHTML = "";
+  }
 
-  movies.forEach(movie => {
+  movies.forEach((movie, index) => {
+    const rating = Math.round(movie.vote_average * 10) / 10;
+
     const card = document.createElement("div");
     card.classList.add("movie-card");
 
@@ -16,7 +20,7 @@ export function renderMovies(resultsContainer, movies, genreList, moods) {
     card.innerHTML = `
       ${imageUrl ? `<img src="${imageUrl}" alt="${movie.title}" />` : ""}
       <h3>${movie.title}</h3>
-      <p>⭐ ${movie.vote_average}</p>
+      <p>⭐ ${rating}</p>
       <p class="movie-genres">${movieGenres.join(", ") || "Unknown"}</p>
     `;
 
@@ -32,6 +36,7 @@ export function renderBestMatch(container, movie, genreList, moods) {
   container.innerHTML = "";
 
   const movieGenres = getGenreNamesFromIds(movie.genre_ids, genreList);
+  const rating = Math.round(movie.vote_average * 10) / 10;
   const imageUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
       : "";
@@ -47,7 +52,7 @@ export function renderBestMatch(container, movie, genreList, moods) {
     <div class="best-match-card__content">
       <p class="hero-badge">Top recommendation</p>
       <h3>${movie.title}</h3>
-      <p>⭐ ${movie.vote_average}</p>
+      <p>⭐ ${rating}</p>
       <p class="movie-genres">${movieGenres.join(", ") || "Unknown"}</p>
       <p class="movie-overview">
         ${movie.overview || "No description available."}

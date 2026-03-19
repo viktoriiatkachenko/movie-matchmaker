@@ -6,6 +6,9 @@ import {
   isValidUser
 } from "./js/form.js";
 import { saveMatchData } from "./js/storage.js";
+import { initLenis } from "./js/lenis.js";
+
+initLenis();
 
 const genreContainers = document.querySelectorAll(".genres");
 const moodContainers = document.querySelectorAll(".moods");

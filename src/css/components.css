@@ -1,0 +1,164 @@
+h1,
+h2,
+h3 {
+  margin-bottom: 10px;
+}
+
+p {
+  color: #aaa;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border-radius: 8px;
+  border: none;
+  background: #2a2a35;
+  color: white;
+}
+
+.primary-btn {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #d0d0dc;
+  border: 1px solid #2a2a35;
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+
+.secondary-btn:hover {
+  background: #2a2a35;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(229, 9, 20, 0.3);
+}
+
+.primary-btn:active {
+  transform: scale(0.96);
+}
+
+.user-card {
+  flex: 1;
+  background: #1a1a22;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.genres,
+.moods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.genres button,
+.moods button {
+  background: #2a2a35;
+  border: 1px solid transparent;
+  color: #ddd;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.genres button:hover,
+.moods button:hover {
+  border-color: #555;
+  color: white;
+}
+
+.genres[data-type="favorite"] button.active {
+  background: #22c55e;
+  color: white;
+}
+
+.genres[data-type="avoid"] button.active {
+  background: #ef4444;
+  color: white;
+}
+
+.moods button.active {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: white;
+}
+
+.movie-card {
+  position: relative;
+  background: linear-gradient(180deg, #1a1a22 0%, #15151c 100%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 10px;
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  border-color: rgba(229, 9, 20, 0.25);
+  background: linear-gradient(180deg, #20202a 0%, #17171f 100%);
+}
+
+.movie-card img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  background: #0b0b10;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.movie-card:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.04);
+}
+
+.movie-card h3 {
+  margin: 10px 0 6px;
+  font-size: 16px;
+  color: #f2f2f7;
+  transition: color 0.25s ease;
+}
+
+.movie-card:hover h3 {
+  color: white;
+}
+
+.movie-card p {
+  transition: color 0.25s ease;
+}
+
+.movie-card:hover .movie-genres {
+  color: #d8d8e2;
+}
+
+.movie-genres {
+  color: #9b9baa;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.fallback-message {
+  color: #b8b8c7;
+  margin-bottom: 20px;
+}

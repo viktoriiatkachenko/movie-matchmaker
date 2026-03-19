@@ -59,7 +59,6 @@ export function renderBestMatch(container, movie, genreList, moods) {
       </p>
     </div>
   `;
-
   card.addEventListener("click", function () {
     openMovieModal(movie, genreList, moods);
   });

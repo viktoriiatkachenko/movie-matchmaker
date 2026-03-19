@@ -18,11 +18,13 @@ export function renderMovies(resultsContainer, movies, genreList, moods, append 
       : "";
 
     card.innerHTML = `
-      ${imageUrl ? `<img src="${imageUrl}" alt="${movie.title}" />` : ""}
-      <h3>${movie.title}</h3>
-      <p>⭐ ${rating}</p>
-      <p class="movie-genres">${movieGenres.join(", ") || "Unknown"}</p>
-    `;
+  <div class="movie-card__image">
+    ${imageUrl ? `<img src="${imageUrl}" alt="${movie.title}" />` : ""}
+  </div>
+  <h3>${movie.title}</h3>
+  <p>⭐ ${rating}</p>
+  <p class="movie-genres">${movieGenres.join(", ") || "Unknown"}</p>
+`;
 
     card.addEventListener("click", function () {
       openMovieModal(movie, genreList, moods);

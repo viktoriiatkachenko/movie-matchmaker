@@ -73,6 +73,17 @@
   max-width: 60ch;
 }
 
+@media (max-width: 600px) {
+  .best-match-card {
+    grid-template-columns: 1fr;
+  }
+
+  .best-match-card__image img {
+    max-height: 420px;
+    margin: 0 auto;
+  }
+}
+
 .load-more-wrap {
   display: flex;
   justify-content: center;
@@ -82,3 +93,4 @@
 #load-more-btn {
   margin-top: 8px;
 }
+

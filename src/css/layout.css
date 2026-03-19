@@ -88,3 +88,17 @@
     font-size: 42px;
   }
 }
+
+@media (max-width: 900px) {
+  #results {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  #results {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
